@@ -1,0 +1,31 @@
+/**
+ * 在主项目的根目录下创建config.gradle文件
+ * 在这里单独处理统一依赖问题
+ * 注意需要在根目录的build.gradle中进行引入
+ */
+
+ext {
+    supportLibrary = "28.0.0"
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 16,
+            targetSdkVersion : 28,
+            buildToolsVersion: "28.0.3",
+            versionCode      : 1,
+            versionName      : "1.0.0"
+    ]
+
+    appId = ["app"   : "com.sglei.book",
+             "login" : "com.sglei.loginmodule",
+             "sort"  : "com.sglei.sortmodule",
+             "mine"  : "com.sglei.minemodule"]
+    url = [
+            "debug"  : "http://apis.juhe.cn/goodbook/",
+            "release": "http://apis.juhe.cn/goodbook/"
+
+    ]
+    imgUrl = [
+            "debug"  : "http://apis.juhe.cn/goodbook/",
+            "release": "http://apis.juhe.cn/goodbook/"
+    ]
+}
