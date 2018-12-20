@@ -1,14 +1,19 @@
 package com.sglei.basemodule;
 
-import android.app.Application;
-import android.content.Context;
-import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 
-public class BookApplication extends Application {
+public class BookApplication extends MultiDexApplication {
+
+    private static BookApplication instance;
 
     @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
+    public void onCreate() {
+        super.onCreate();
+        instance = new BookApplication();
     }
+
+    public static BookApplication getInstance() {
+        return instance;
+    }
+
 }

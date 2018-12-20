@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BaseModule</string>
+    <string name="error_net">网络错误</string>
 </resources>

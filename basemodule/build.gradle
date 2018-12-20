@@ -28,7 +28,7 @@ android {
         }
         debug {
             //debug模式
-            buildConfigField "String", "HostUrl", "\"${url["uat"]}\""
+            buildConfigField "String", "HostUrl", "\"${url["debug"]}\""
             buildConfigField "String", "ImageUrl", "\"${imgUrl["debug"]}\""
             buildConfigField 'String', 'BuglyAppID', "\"da08e24090\""
             buildConfigField 'boolean', 'isDebug', "true"
