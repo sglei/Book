@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tab_titles">
+        <item>书库</item>
+        <item>我的</item>
+    </array>
+</resources>

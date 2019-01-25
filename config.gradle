@@ -15,17 +15,18 @@ ext {
             versionName      : "1.0.0"
     ]
 
-    appId = ["app"   : "com.sglei.book",
-             "login" : "com.sglei.loginmodule",
-             "sort"  : "com.sglei.sortmodule",
-             "mine"  : "com.sglei.minemodule"]
+    appId = ["app"  : "com.sglei.book",
+             "login": "com.sglei.loginmodule",
+             "sort" : "com.sglei.sortmodule",
+             "mine" : "com.sglei.minemodule"]
     url = [
             "debug"  : "http://apis.juhe.cn/goodbook/",
-            "release": "http://apis.juhe.cn/goodbook/"
-
+            "release": "http://apis.juhe.cn/goodbook/",
+            "emulate": "http://apis.juhe.cn/goodbook/"
     ]
     imgUrl = [
             "debug"  : "http://apis.juhe.cn/goodbook/",
-            "release": "http://apis.juhe.cn/goodbook/"
+            "release": "http://apis.juhe.cn/goodbook/",
+            "emulate": "http://apis.juhe.cn/goodbook/"
     ]
 }

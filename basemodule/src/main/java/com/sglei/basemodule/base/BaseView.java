@@ -1,7 +1,7 @@
 package com.sglei.basemodule.base;
 
 import android.content.Intent;
-import android.support.annotation.LayoutRes;
+import androidx.annotation.LayoutRes;
 import com.sglei.basemodule.net.event.ActivityLifeCycleEvent;
 import io.reactivex.subjects.PublishSubject;
 

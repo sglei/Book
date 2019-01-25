@@ -1,6 +1,6 @@
 package com.sglei.basemodule;
 
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 
 public class BookApplication extends MultiDexApplication {
 

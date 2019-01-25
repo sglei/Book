@@ -2,22 +2,22 @@ package com.sglei.basemodule.base;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import com.sglei.basemodule.R;
 import com.sglei.basemodule.net.event.ActivityLifeCycleEvent;
 import com.sglei.basemodule.net.event.BasePresenter;
 import com.sglei.basemodule.util.NetUtils;
 import com.sglei.basemodule.util.ToastUtils;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.subjects.PublishSubject;
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +34,7 @@ abstract public class BaseActivity<T extends BasePresenter> extends AppCompatAct
     T mPresenter;
     BaseActivity mContext;
     final PublishSubject<ActivityLifeCycleEvent> lifeCycleSubject = PublishSubject.create();
-    private ArrayList<Disposable> disposables = new ArrayList<>();
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,15 +45,15 @@ abstract public class BaseActivity<T extends BasePresenter> extends AppCompatAct
         initEvent();
     }
 
-    void initData() {
+    protected void initData() {
         mContext = this;
     }
 
-    void initView() {
+    protected void initView() {
 
     }
 
-    void initEvent() {
+    protected void initEvent() {
 
     }
 
@@ -96,9 +96,9 @@ abstract public class BaseActivity<T extends BasePresenter> extends AppCompatAct
         return mContext;
     }
 
-    void addDisposable(Disposable disposable) {
+    protected void addDisposable(Disposable disposable) {
         if (disposable != null) {
-            mContext.addDisposable(disposable);
+            compositeDisposable.add(disposable);
         }
     }
 
@@ -140,10 +140,6 @@ abstract public class BaseActivity<T extends BasePresenter> extends AppCompatAct
         if (mPresenter != null) {
             mPresenter.onDestroy();
         }
-        for (Disposable disposable : disposables) {
-            if (disposable != null && disposable.isDisposed()) {
-                disposable.dispose();
-            }
-        }
+        compositeDisposable.clear();
     }
 }

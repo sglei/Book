@@ -3,12 +3,12 @@ package com.sglei.basemodule.base;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.sglei.basemodule.net.event.ActivityLifeCycleEvent;
 import com.sglei.basemodule.net.event.BasePresenter;
 import io.reactivex.disposables.Disposable;
@@ -127,11 +127,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     }
 
     protected void addDisposable(Disposable disposable) {
-        if (disposable == null) {
-            return;
+        if (disposable != null) {
+            mContext.addDisposable(disposable);
         }
-        mContext.addDisposable(disposable);
     }
-
-
 }
